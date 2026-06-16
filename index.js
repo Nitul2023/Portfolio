@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
     revealEls.forEach(el => revealObserver.observe(el));
 
     /* ===== STAGGER REVEALS ===== */
-    document.querySelectorAll('.card-container, .intern-grid, .projects-grid').forEach(container => {
+    document.querySelectorAll('.card-container, .intern-grid, .projects-grid, .certificates-grid').forEach(container => {
         const children = container.querySelectorAll('.reveal');
         children.forEach((child, i) => {
             child.style.transitionDelay = `${i * 0.1}s`;
