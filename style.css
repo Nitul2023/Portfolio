@@ -1443,4 +1443,153 @@ footer p {
     width: 31px;
     height: 31px;
   }
-} 
+}
+
+/* =====================================================
+   FINAL PROJECT BUTTON FIX
+   Live and GitHub buttons below image, no hover overlay
+   Add the new HTML .pcard-action-row after .pcard-img-wrap
+===================================================== */
+
+/* Hide old overlay buttons permanently */
+.pcard-overlay,
+.pcard-links {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+}
+
+/* Keep project cards clean */
+.project-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Image area */
+.pcard-img-wrap {
+    position: relative;
+    width: 100%;
+    height: 210px;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+}
+
+.pcard-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: none !important;
+}
+
+.project-card:hover .pcard-img {
+    transform: none !important;
+}
+
+/* Always visible Live/GitHub buttons below image */
+.pcard-action-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 18px 18px 6px;
+    flex-wrap: wrap;
+}
+
+.pcard-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 110px;
+    padding: 12px 20px;
+    background: var(--gold);
+    color: #05070d;
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1;
+    text-decoration: none;
+    transition: none !important;
+}
+
+.pcard-btn svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+/* No hover movement/effect on buttons */
+.pcard-btn:hover,
+.pcard-btn:focus,
+.pcard-btn:active {
+    background: var(--gold);
+    color: #05070d;
+    border-color: var(--gold);
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Body spacing after buttons */
+.pcard-body {
+    padding-top: 16px;
+    flex: 1;
+}
+
+/* Tablet */
+@media (max-width: 968px) {
+    .pcard-img-wrap {
+        height: 220px;
+    }
+
+    .pcard-action-row {
+        gap: 12px;
+        padding: 16px 16px 6px;
+    }
+
+    .pcard-btn {
+        min-width: 105px;
+        padding: 11px 18px;
+        font-size: 14px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .pcard-img-wrap {
+        height: 205px;
+    }
+
+    .pcard-action-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        padding: 15px 14px 4px;
+    }
+
+    .pcard-action-row .pcard-btn:only-child {
+        grid-column: 1 / -1;
+    }
+
+    .pcard-btn {
+        width: 100%;
+        min-width: 0;
+        padding: 11px 12px;
+        font-size: 14px;
+    }
+}
+
+/* Very small mobile */
+@media (max-width: 380px) {
+    .pcard-img-wrap {
+        height: 185px;
+    }
+
+    .pcard-action-row {
+        grid-template-columns: 1fr;
+    }
+}
